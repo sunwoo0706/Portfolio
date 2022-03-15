@@ -1,4 +1,4 @@
-type ColorToken = 'black';
+type ColorToken = 'black' | 'white';
 
 type ColorTheme = {
   scheme: Record<ColorToken, string>;
@@ -6,7 +6,8 @@ type ColorTheme = {
 
 const pallete: Readonly<ColorTheme> = {
   scheme: {
-    black: "#000"
+    black: "#000",
+    white: "#fff"
   },
 };
 
