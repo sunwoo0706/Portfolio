@@ -24,6 +24,11 @@ export function GlobalStyle() {
           -webkit-font-smoothing: antialiased;
           font-smoothing: antialiased;
         }
+
+        @font-face {
+          font-family: 'StarWars';
+          src: url('/fonts/Starjedi.ttf') format('truetype');
+        }
       `}
     />
   );
