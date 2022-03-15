@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { StarElementProps, generateStar } from './container';
 import { displayType } from 'shared/Type';
-import { useDisplaySize } from 'hooks/useDisplaySize';
+import { useEffect, useState } from 'react';
 
 const StarLayer = styled.div<StarElementProps>`
   width: ${({ size }) => size}px;
@@ -21,12 +21,19 @@ const StarLayer = styled.div<StarElementProps>`
 `;
 
 export const Star: React.FC = () => {
-  const display: displayType = useDisplaySize();
+  const [display, setDisplay] = useState<displayType>();
+
+  useEffect(() => {
+    setDisplay({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }, []);
 
   return (
     <>
-      <StarLayer n={100} size={1} display={display} />
-      <StarLayer n={100} size={2} display={display} />
+      <StarLayer n={100} size={1} display={display!} />
+      <StarLayer n={100} size={2} display={display!} />
     </>
   );
 };
