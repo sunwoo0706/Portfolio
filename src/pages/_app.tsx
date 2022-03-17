@@ -3,7 +3,6 @@ import emotionReset from 'emotion-reset';
 import { Global, css } from '@emotion/react';
 
 import pallete from 'shared/Pallete';
-import Star from 'components/Star';
 
 export function GlobalStyle() {
   return (
@@ -13,7 +12,6 @@ export function GlobalStyle() {
 
         body {
           background-color: ${pallete.scheme.black};
-          overflow: hidden;
         }
 
         *,
@@ -27,6 +25,7 @@ export function GlobalStyle() {
 
         @font-face {
           font-family: 'StarWars';
+          font-display: block;
           src: url('/fonts/Starjedi.ttf') format('truetype');
         }
       `}
@@ -38,7 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
-      <Star />
       <Component {...pageProps} />
     </>
   );
