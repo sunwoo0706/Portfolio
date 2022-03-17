@@ -1,38 +1,35 @@
 import type { NextPage } from 'next';
-import styled from '@emotion/styled';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import pallete from 'shared/Pallete';
-
-const IntroParagraph = styled.p`
-  width: fit-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4vw;
-  font-weight: 400;
-  line-height: 5.6vw;
-  letter-spacing: 0.2vw;
-  color: ${pallete.scheme.mint};
-`;
+import IntroParagraph from 'components/IntroParagraph';
+import Logo from 'components/Logo';
+import Star from 'components/Star';
 
 const Home: NextPage = () => {
-  const router = useRouter();
+  const [isIntro, setIntro] = useState<boolean>(true);
+  const [play, setPlay] = useState<boolean>(false);
+
+  const introTimeOut = () => {
+    setTimeout(() => {
+      const audio = new Audio('/audios/Star_Wars_Intro.mp3');
+      setIntro(false);
+      audio.play();
+    }, 4000);
+  };
 
   useEffect(() => {
-    const timeout = setTimeout(() => router.push('/content'), 4000);
+    if (play) {
+      introTimeOut();
+    }
+  }, [play]);
 
-    return () => clearTimeout(timeout);
-  }, []);
-
-  return (
-    <IntroParagraph>
-      A long time ago in a galaxy far,
-      <br />
-      far away....
-    </IntroParagraph>
+  return isIntro ? (
+    <IntroParagraph play={play} setPlay={setPlay} />
+  ) : (
+    <>
+      <Star />
+      <Logo />
+    </>
   );
 };
 

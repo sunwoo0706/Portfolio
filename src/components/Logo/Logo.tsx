@@ -32,7 +32,7 @@ const LogoWrapper = styled.div`
     2px 0 0 ${yellow}, 2px 1px 0 ${yellow}, 2px 2px 0 ${yellow};
   line-height: 86%;
   letter-spacing: initial;
-  animation: ${fadeOutAnimation} 6s forwards;
+  animation: ${fadeOutAnimation} 7s forwards;
 `;
 
 export const Logo: React.FC = () => {
