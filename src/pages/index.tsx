@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
-import IntroParagraph from 'components/IntroParagraph';
-import Logo from 'components/Logo';
+import IntroParagraph from 'components/Intro/IntroParagraph';
+import Logo from 'components/Intro/Logo';
 import Star from 'components/Star';
+import ScrollContainer from 'components/ScrollContainer';
 
 const Home: NextPage = () => {
   const [isIntro, setIntro] = useState<boolean>(true);
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
     <>
       <Star />
       <Logo />
+      <ScrollContainer></ScrollContainer>
     </>
   );
 };
