@@ -5,6 +5,7 @@ import IntroParagraph from 'components/Intro/IntroParagraph';
 import Logo from 'components/Intro/Logo';
 import Star from 'components/Star';
 import ScrollContainer from 'components/ScrollContainer';
+import Header from 'components/Layouts/Header';
 
 const Home: NextPage = () => {
   const [isIntro, setIntro] = useState<boolean>(true);
@@ -13,8 +14,9 @@ const Home: NextPage = () => {
   const introTimeOut = () => {
     setTimeout(() => {
       const audio = new Audio('/audios/Star_Wars_Intro.mp3');
-      setIntro(false);
       audio.play();
+
+      setIntro(false);
     }, 4000);
   };
 
@@ -30,7 +32,9 @@ const Home: NextPage = () => {
     <>
       <Star />
       <Logo />
-      <ScrollContainer></ScrollContainer>
+      <ScrollContainer>
+        <Header />
+      </ScrollContainer>
     </>
   );
 };

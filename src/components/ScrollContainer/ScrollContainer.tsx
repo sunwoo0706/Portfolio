@@ -21,12 +21,12 @@ const ContentWrapper = styled.div`
   height: 150vw;
   color: ${pallete.scheme.yellow};
   transform-origin: 50% 100%;
-  transform: perspective(30rem) rotateX(20deg);
+  transform: perspective(40rem) rotateX(20deg);
   overflow: scroll;
-  font-size: 6rem;
+  font-size: 4vw;
   opacity: 0;
   animation: ${fadein} 1s linear forwards;
-  animation-delay: 7s;
+  animation-delay: 7s; 
 `;
 
 export const ScrollContainer: React.FC = ({ children }) => {
